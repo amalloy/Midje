@@ -25,7 +25,12 @@
  (fact "no longer need to prefix table variables with '?'"
    (+ a b) => result )
  a     b       result
- 1     2       3)
+ 1     2       (fn [actual] (= 3 actual))
+ 3     4       (as-checker odd?)
+ 2     1       (as-checker (fn [actual] (= 3 actual)))
+  )
+
+;(exactly odd?)
 
 (tabular "The tabular form can have a doc string"
  (fact 
